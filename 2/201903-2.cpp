@@ -12,7 +12,7 @@ int calculate(int n1, int n2, char op)
 		case '-':
 			result = n1 - n2;
 			break;
-		case '*':
+		case 'x':
 			result = n1 * n2;
 			break;
 		case '/':
@@ -64,9 +64,9 @@ int main()
 			{
 				if(sym.empty())	//栈为空 
 					sym.push(buffs[i]);
-				else if(buffs[i]=='*' || buffs[i]=='/')	//只有四则运算符号，故* /运算等级最高，只判断是否相等 
+				else if(buffs[i]=='x' || buffs[i]=='/')	//只有四则运算符号，故* /运算等级最高，只判断是否相等 
 				{
-					if(sym.top()=='*' || sym.top()=='/')
+					if(sym.top()=='x' || sym.top()=='/')
 					{
 						rpn.push_back(sym.top());
 						sym.pop();
@@ -119,9 +119,9 @@ int main()
 		}
 		//判断24点
 		if(res==24)
-			cout << res <<"Yes" << endl;
+			cout <<"Yes" << endl;
 		else
-			cout << res << "No" << endl;
+			cout << "No" << endl;
 		
 		//相关辅助栈和字符串清零
 		//因本代码的辅助变量在for循环内初始化，故不用清零； 
